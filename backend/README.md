@@ -1,117 +1,67 @@
-🎙️ LiveKit Voice Agent Starter (Python + Murf Falcon TTS)
+🎙️ Voice Agent Backend
 
-This project is a starting point for building a real-time voice AI assistant using LiveKit Agents (Python). It uses Murf Falcon for fast text-to-speech as part of the AI Voice Agents Challenge by Murf.ai.
+This backend handles the real-time communication between the user and the AI voice agent.
 
-🚀 Features
+✅ Features
 
-Voice AI assistant ready to customize
+Real-time audio input/output
 
-Realtime pipeline with:
+Speech-to-text pipeline
 
-LLM
+AI response handling
 
-Speech-to-Text
+Fast Murf Falcon TTS
 
-Text-to-Speech
+LiveKit voice session integration
 
-LiveKit Turn Detection
+📂 Backend Structure
+src/
+└─ agent.py   # Main entry point for the voice agent
 
-Noise cancellation
-
-Logging & metrics
-
-Dockerfile for deployment
-
-You can connect this backend to a web/mobile frontend or telephony.
-
-🛠️ Setup
-1️⃣ Clone & Install
-cd agent-starter-python
+⚙️ Setup & Installation
+1️⃣ Install dependencies
 uv sync
 
-2️⃣ Environment Variables
-
-Copy .env.example → .env.local and update your credentials.
-
-✅ Backend .env.local
-LIVEKIT_URL=ws://localhost:7880
-LIVEKIT_API_KEY=devkey
-LIVEKIT_API_SECRET=secret
-
-GOOGLE_API_KEY=api_key
-MURF_API_KEY=api_key
-DEEPGRAM_API_KEY=api_key
-
-✅ Frontend .env.local
-LIVEKIT_URL=ws://127.0.0.1:7880
-LIVEKIT_API_KEY=devkey
-LIVEKIT_API_SECRET=secret
-
-NEXT_PUBLIC_LIVEKIT_URL=ws://127.0.0.1:7880
-NEXT_PUBLIC_API_KEY=devkey
-NEXT_PUBLIC_API_SECRET=secret
-
-NEXT_PUBLIC_APP_CONFIG_ENDPOINT=
-SANDBOX_ID=
-
-
-These values are for local development.
-
-📥 Required Downloads
-
-Before the first run:
-
-uv run python src/agent.py download-files
-
-▶️ Running the Agent
-Terminal mode (talk directly)
-uv run python src/agent.py console
-
-Dev mode (for frontend/telephony)
+2️⃣ Run the backend
 uv run python src/agent.py dev
 
-Production mode
-uv run python src/agent.py start
+🔑 Environment Variables
 
-💻 Frontend Options
+Create a .env file and add:
 
-LiveKit provides ready-made starter apps:
+LIVEKIT_API_KEY=your_key
+LIVEKIT_API_SECRET=your_secret
+MURF_API_KEY=your_key
 
-Web (React/Next.js)
 
-iOS/macOS (Swift)
+(Use your actual keys)
 
-Flutter
+🧠 How It Works
 
-React Native
+Agent listens to user audio
 
-Android
+Converts speech → text
 
-Web Embed
+Processes the text for a response
 
-Telephony integration
+Converts text → speech using Murf Falcon
 
-✅ Tests
-uv run pytest
+Sends audio back to the user in real time
 
-🚀 Deployment
+🚀 Future Enhancements
 
-This project includes a working Dockerfile and can be deployed:
+Agent memory
 
-To LiveKit Cloud
+Custom prompts
 
-To your own server
+Web-based UI
 
-Or with a self-hosted LiveKit setup
+Multi-language support
 
-✅ If You Fork This Repo
+✅ Requirements
 
-Commit your uv.lock
+Python 3.10+
 
-Remove the template-only Git checks
+LiveKit account
 
-Add LiveKit secrets to GitHub Actions if using CI
-
-📄 License
-
-MIT License.
+Murf API access
