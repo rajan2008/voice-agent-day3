@@ -1,10 +1,34 @@
-# Day 2 – Coffee Shop Barista Agent
-For Day 2, your primary objective is to turn the starter agent into a coffee shop barista that can take voice orders and show a neat text summary.
+# ✅ Day 3 – Order Review & Payment Agent
 
-Primary Goal (Required)
-Persona: Turn the agent into a friendly barista for a coffee brand of your choice.
-Order state: Maintain a small order state object:
-```json
+For Day 3, your main objective is to extend your Day 2 barista agent so it can review the final order, handle edits, and simulate payment confirmation before completing the workflow.
+
+🎯 Primary Goal (Required)
+✅ Persona
+
+Keep the same friendly barista persona—or enhance it by making the agent more customer-service oriented (warm, polite, helpful).
+
+✅ Order Review Behavior
+
+Once the order state is complete, the agent should:
+
+Clearly summarize the order back to the customer.
+
+Ask: “Would you like to make any changes?”
+
+If the customer wants changes:
+
+Update the relevant fields in the order state.
+
+Reconfirm the updated order.
+
+If everything looks good:
+
+Ask for a payment confirmation (e.g., “Shall I proceed to payment?”).
+
+On confirmation, mark the order as complete.
+
+✅ State Object (Same as Day 2)
+```
 {
   "drinkType": "string",
   "size": "string",
@@ -13,29 +37,70 @@ Order state: Maintain a small order state object:
   "name": "string"
 }
 ```
-Behavior:
-The agent should ask clarifying questions until all fields in the order state are filled.
-Once the order is complete, save the order to a JSON file summarizing the order.
-Resources:
+
+You will continue using this object, but now you’ll support editing the fields.
+
+✅ Final Output
+
+When payment is confirmed:
+
+Save the final confirmed order into a JSON file named like:
+
+order_<timestamp>.json
+
+
+Log an internal message like:
+
+Order completed and saved successfully.
+
+🧩 Key Behaviors
+
+✅ Must allow order changes
+✅ Must reconfirm order after edits
+✅ Must only save once the customer approves
+✅ Must mark order as "completed"
+
+🔧 Resources
+
 https://docs.livekit.io/agents/build/tools/
+
 https://docs.livekit.io/agents/build/agents-handoffs/#passing-state
-https://docs.livekit.io/agents/build/tasks/
-https://github.com/livekit/agents/blob/main/examples/drive-thru/agent.py
-Completing the above is enough to finish Day 2.
 
-Advanced Challenge (Optional)
-This part is completely optional and only for participants who want an extra challenge:
+https://docs.livekit.io/agents/build/tools/storage/
 
-Build an HTML-based beverage image generation system.
-The rendered HTML “drink image” should change according to the order. For example:
-If the order is small, show a small cup; if large, show a larger cup.
-If the drink has whipped cream, visualize it with a simple HTML shape on top of the cup.
-Instead of the beverage image, you can also render an HTML order receipt.
-Resources:
-https://docs.livekit.io/home/client/data/text-streams/
-https://docs.livekit.io/home/client/data/rpc/
-* Step 1: You only need the primary goal to complete Day 2; the Advanced Challenge is for going the extra mile.
-* Step 2: Successfully connect to the coffee shop barista in your browser and place a coffee order.
-* Step 3: Record a short video of your session placing a coffee order with the agent and show the JSON file summarizing the order.
-* Step 4: Post the video on LinkedIn with a description of what you did for the task on Day 2. Also, mention that you are building voice agent using the fastest TTS API - Murf Falcon. Mention that you are part of ---> the “Murf AI Voice Agent Challenge” and don't forget to tag the official Murf AI handle. Also, use hashtags #MurfAIVoiceAgentsChallenge and #10DaysofAIVoiceAgents
-Once your agent is running and your LinkedIn post is live, you’ve completed Day 2.
+(You’ll mainly use state updates + file writing.)
+
+✅ What Counts as Completed for Day 3
+
+Your agent can:
+
+Review the order
+
+Handle changes
+
+Confirm payment
+
+Save the final JSON
+
+You connect in the browser and successfully go through:
+✅ Order
+✅ Review
+✅ Edit (optional)
+✅ Final confirmation
+✅ JSON saved
+
+Record a short video showing:
+
+The conversation
+
+The saved JSON file
+
+Post on LinkedIn with:
+✅ What you built on Day 3
+✅ Mention Murf Falcon (fastest TTS API)
+✅ Mention “Murf AI Voice Agent Challenge”
+✅ Tag official Murf AI handle
+✅ Use hashtags:
+
+#MurfAIVoiceAgentsChallenge
+#10DaysofAIVoiceAgents
