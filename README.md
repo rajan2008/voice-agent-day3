@@ -1,4 +1,4 @@
-🌿 Day 3 – Wellness Check-in Voice Agent
+# 🌿 Day 3 – Wellness Check-in Voice Agent
 
 AI Voice Agent Challenge – Murf AI x LiveKit
 
@@ -122,3 +122,4 @@ Okay — energy set to low. Are you stressed today?
 …and so on.
 
 At the end, the agent saves a history entry and gives personalized advice.
+
